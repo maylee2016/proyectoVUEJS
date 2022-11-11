@@ -25,8 +25,8 @@ const routes = [
   },
 
   {
-    path: '/asistencia',
-    name: 'asistencia',
+    path: '/asistencias',
+    name: 'asistencias',
     // component: asistenciaView
     component: () => import(/* webpackChunkName: "about" */ '../views/AsistenciaView.vue')
 

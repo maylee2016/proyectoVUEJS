@@ -16,6 +16,9 @@
         <li class="nav-item">
             <router-link to="/reuniones">Reuniones</router-link>
         </li>
+        <li class="nav-item">
+          <router-link to="/asistencias">Asistencias</router-link>
+        </li>
         
       </ul>
 

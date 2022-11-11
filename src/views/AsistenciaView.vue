@@ -2,7 +2,7 @@
   <div>
     <h1>{{ titulo }}</h1>
   </div>
-  <propietarios-table title="Lista de assitencias"></propietarios-table>
+  <asistencias-table title="Lista de assitencias"></asistencias-table>
 </template>
 
 <script>
