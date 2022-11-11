@@ -1,4 +1,8 @@
-# myapp
+# otb los pinos
+##Integrantes:
+- Jose Luis Yacelly Ramos
+- Maylee Perez Pastor
+- Jorge Flores
 
 ## Project setup
 ```
@@ -10,10 +14,8 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
+### levantar json-server
 ```
-npm run build
+npm run json-server
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
