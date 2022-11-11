@@ -10,19 +10,22 @@
     </tr>
     </thead>
     <tbody>
-    <tr v-for="(reuniones, index) in reuniones">
+    <tr v-for="(reunion, index) in reuniones">
       <th scope="row">{{index+1}}</th>
-      <td>{{reuniones.fecha_reunion}}</td>
-      <td>{{reuniones.motivo}}</td>
-      <td>{{reuniones.estado}}</td>
-      <td>{{reuniones.user_id}}</td>
-      <td><button class="btn-primary">ver</button><button class="btn-success">editar</button></td>
+      <td>{{reunion.fecha_reunion}}</td>
+      <td>{{reunion.motivo}}</td>
+      <td>{{reunion.estado}}</td>
+      <td>{{reunion.user_id}}</td>
+      <td><app-acciones @onAccion="irA($event, reunion.id)"></app-acciones></td>
     </tr>
     </tbody>
   </table>
 </template>
 
 <script>
+import AppAcciones from '@/components/AppAcciones.vue';
+
+
 export default {
   name: 'appTable',
   data() {
@@ -33,7 +36,37 @@ export default {
       errored: false
     }
   },
-  methods: {},
+  methods: {
+    irA(opcion, reunion_id) {
+      if (opcion === 'editar') {
+        this.$router.push({ name: 'editarReunionView', params: { id: reunion_id } });
+      } else {
+        if (confirm("Esta seguro de eliminar la reunion")) {
+          axios({
+            method: "delete",
+            url: process.env.VUE_APP_RUTA_API+"/reuniones/" + reunion_id
+          })
+              .then(response => {
+                this.getReuniones();
+                console.log(response);
+              })
+              .catch(e => console.log(e));
+        }
+      }
+    },
+
+    getReuniones() {
+      axios({
+        method: "get",
+        url: process.env.VUE_APP_RUTA_API+"/reuniones"
+      })
+          .then(response => {
+            this.reuniones = response.data;
+            console.log(response);
+          })
+          .catch(e => console.log(e));
+    },
+  },
   computed: {},
   mounted() {
     axios.get('http://localhost:4444/reuniones')
@@ -46,7 +79,9 @@ export default {
         })
         .finally(() => this.loading = false)
   },
-  components: {}
+  components: {
+    AppAcciones
+  }
 }
 </script>
 

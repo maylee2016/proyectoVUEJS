@@ -47,6 +47,13 @@ const routes = [
 
   },
   {
+    path: '/reuniones/:id/editar',
+    name: 'editarReunionView',
+    // component: propietarioView
+    component: () => import('../views/EditarReunionView.vue')
+
+  },
+  {
     path: '/about',
     name: 'about',
     // route level code-splitting
