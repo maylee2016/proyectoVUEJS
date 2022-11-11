@@ -36,14 +36,14 @@ const routes = [
     path: '/propietarios/:id',
     name: 'verPropietarios',
     // component: propietarioView
-    component: () => import(/* webpackChunkName: "about" */ '../views/VerPropietarioView.vue')
+    component: () => import( '../views/VerPropietarioView.vue')
 
   },
   {
     path: '/propietarios/:id/editar',
-    name: 'editarPropietarios',
+    name: 'editarPropietarioView',
     // component: propietarioView
-    component: () => import(/* webpackChunkName: "about" */ '../views/EditarPropietarioView.vue')
+    component: () => import('../views/EditarPropietarioView.vue')
 
   },
   {

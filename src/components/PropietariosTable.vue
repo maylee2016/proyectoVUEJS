@@ -19,13 +19,16 @@
       <td>{{propietario.materno}}</td>
       <td>{{propietario.genero}}</td>
       <td>{{propietario.domicilio}}</td>
-      <td><button class="btn-primary">ver</button><button class="btn-success">editar</button></td>
+      <td><app-acciones @onAccion="irA($event, propietario.id)"></app-acciones>
+      </td>
     </tr>
     </tbody>
   </table>
 </template>
 
 <script>
+import AppAcciones from '@/components/AppAcciones.vue';
+
 export default {
   name: 'appTable',
   data() {
@@ -36,7 +39,36 @@ export default {
       errored: false
     }
   },
-  methods: {},
+  methods: {
+    irA(opcion, propietario_id) {
+      if (opcion === 'editar') {
+        this.$router.push({ name: 'editarPropietarioView', params: { id: propietario_id } });
+      } else {
+        if (confirm("Esta seguro de eliminar propietario")) {
+          axios({
+            method: "delete",
+            url: process.env.VUE_APP_RUTA_API+"/propietarios/" + propietario_id
+          })
+              .then(response => {
+                this.getPropietarios();
+                console.log(response);
+              })
+              .catch(e => console.log(e));
+        }
+      }
+    },
+    getPropietarios() {
+      axios({
+        method: "get",
+        url: process.env.VUE_APP_RUTA_API+"/propietarios/?q="+this.textoABuscar
+      })
+          .then(response => {
+            this.tareas = response.data;
+            console.log(response);
+          })
+          .catch(e => console.log(e));
+    },
+  },
   computed: {},
   mounted() {
     axios.get('http://localhost:4444/propietarios')
@@ -49,7 +81,9 @@ export default {
         })
         .finally(() => this.loading = false)
   },
-  components: {}
+  components: {
+    AppAcciones
+  }
 }
 </script>
 
