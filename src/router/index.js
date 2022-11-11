@@ -15,6 +15,23 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/PropietarioView.vue')
 
   },
+
+  {
+    path: '/reuniones',
+    name: 'reuniones',
+    // component: reunionesView
+    component: () => import(/* webpackChunkName: "about" */ '../views/ReunionesView.vue')
+
+  },
+
+  {
+    path: '/asistencia',
+    name: 'asistencia',
+    // component: asistenciaView
+    component: () => import(/* webpackChunkName: "about" */ '../views/AsistenciaView.vue')
+
+  },
+
   {
     path: '/propietarios/:id',
     name: 'verPropietarios',
