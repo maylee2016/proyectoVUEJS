@@ -60,10 +60,10 @@ export default {
     getPropietarios() {
       axios({
         method: "get",
-        url: process.env.VUE_APP_RUTA_API+"/propietarios/?q="+this.textoABuscar
+        url: process.env.VUE_APP_RUTA_API+"/propietarios"
       })
           .then(response => {
-            this.tareas = response.data;
+            this.propietarios = response.data;
             console.log(response);
           })
           .catch(e => console.log(e));
@@ -71,7 +71,7 @@ export default {
   },
   computed: {},
   mounted() {
-    axios.get('http://localhost:4444/propietarios')
+    axios.get(process.env.VUE_APP_RUTA_API+'/propietarios')
         .then(response => {
           this.propietarios = response.data
         })
