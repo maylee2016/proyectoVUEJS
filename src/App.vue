@@ -1,5 +1,5 @@
 <template>
-  <app-menu titulo="Otb Pinos"></app-menu>
+  <app-menu titulo="Cooperativa de Agua"></app-menu>
   <router-view />
 </template>
 

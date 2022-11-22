@@ -1,12 +1,12 @@
 <template>
   <div class="container">
     <div class="abs-center">
-
       <form action="" @submit.prevent="guardar()">
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <label class="form-label">Avatar</label>
           <input type="text" v-model="propietario.avatar" class="form-control">
-        </div>
+        </div> -->
+        <h1>Editar Usuario</h1>
         <div class="mb-3">
           <label class="form-label">Nombres</label>
           <input type="text" v-model="propietario.nombres" class="form-control">
@@ -20,18 +20,19 @@
           <input type="text" v-model="propietario.materno" class="form-control">
         </div>
         <div class="mb-3">
-          <label class="form-label">Ci</label>
-          <input type="text" v-model="propietario.nro_documento" class="form-control">
+          <label class="form-label">Celular</label>
+          <input type="text" v-model="propietario.celular" class="form-control">
         </div>
         <div class="mb-3">
-          <label class="form-label">Expedido</label>
-          <input type="text" v-model="propietario.expedido" class="form-control">
-        </div>
-        <div class="mb-3">
+          <label class="form-label">Dirección</label>
+          <!-- <input type="text" v-model="propietario.domicilio" class="form-control"> -->
+        
+        <!-- <div class="mb-3">
           <label class="form-label">Genero</label>
           <input type="text" v-model="propietario.genero" class="form-control">
-        </div>
+        </div> -->
         <textarea style="width: 100%" v-model="propietario.domicilio"></textarea>
+        </div>
         <button type="submit" class="btn btn-primary m-2">Guardar</button>
         <button class="btn btn-light m-2">Cancelar</button>
       </form>
@@ -64,8 +65,9 @@ export default {
   methods: {
     getPropietario() {
       axios({
-        method: "get",
-        url: process.env.VUE_APP_RUTA_API + "/propietarios/" + this.$route.params.id
+        method: "get", 
+        url: "http://localhost:4444/propietarios/" + this.$route.params.id
+        // url: process.env.VUE_APP_RUTA_API + "/propietarios/" + this.$route.params.id
       })
           .then(response => {
             this.propietario = response.data;

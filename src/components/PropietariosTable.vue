@@ -6,8 +6,8 @@
       <th scope="col">Nombres</th>
       <th scope="col">Apellido paterno</th>
       <th scope="col">Apellido materno</th>
-      <th scope="col">Genero</th>
-      <th scope="col">Domicilio</th>
+      <th scope="col">Celular</th>
+      <th scope="col">Dirección</th>
       <th scope="col">Opciones</th>
     </tr>
     </thead>
@@ -17,7 +17,7 @@
       <td>{{propietario.nombres}}</td>
       <td>{{propietario.paterno}}</td>
       <td>{{propietario.materno}}</td>
-      <td>{{propietario.genero}}</td>
+      <td>{{propietario.celular}}</td>
       <td>{{propietario.domicilio}}</td>
       <td><app-acciones @onAccion="irA($event, propietario.id)"></app-acciones>
       </td>
@@ -47,7 +47,8 @@ export default {
         if (confirm("Esta seguro de eliminar propietario")) {
           axios({
             method: "delete",
-            url: process.env.VUE_APP_RUTA_API+"/propietarios/" + propietario_id
+            url: "http://localhost:4444/propietarios/" + propietario_id
+            // url: process.env.VUE_APP_RUTA_API+"/propietarios/" + propietario_id
           })
               .then(response => {
                 this.getPropietarios();
@@ -60,7 +61,8 @@ export default {
     getPropietarios() {
       axios({
         method: "get",
-        url: process.env.VUE_APP_RUTA_API+"/propietarios"
+        url: "http://localhost:4444/propietarios"
+        // url: process.env.VUE_APP_RUTA_API+"/propietarios"
       })
           .then(response => {
             this.propietarios = response.data;
@@ -71,7 +73,8 @@ export default {
   },
   computed: {},
   mounted() {
-    axios.get(process.env.VUE_APP_RUTA_API+'/propietarios')
+    // axios.get(process.env.VUE_APP_RUTA_API+'/propietarios')
+    axios.get("http://localhost:4444/propietarios")
         .then(response => {
           this.propietarios = response.data
         })
