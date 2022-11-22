@@ -78,7 +78,8 @@ export default {
     guardar() {
       axios({
         method: "patch",
-        url: process.env.VUE_APP_RUTA_API + "/propietarios/" + this.$route.params.id,
+        url: "http://localhost:4444/propietarios/" + this.$route.params.id,
+        // url: process.env.VUE_APP_RUTA_API + "/propietarios/" + this.$route.params.id,
         data: this.propietario
       })
           .then(response => {

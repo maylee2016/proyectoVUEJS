@@ -11,7 +11,7 @@
             <router-link to="/">Home</router-link>
         </li>
         <li class="nav-item">
-            <router-link to="/propietarios">Propietarios</router-link>
+            <router-link to="/propietarios">Usuarios</router-link>
         </li>
         <li class="nav-item">
             <router-link to="/reuniones">Reuniones</router-link>
