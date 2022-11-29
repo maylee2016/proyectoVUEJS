@@ -61,7 +61,7 @@ export default {
     getPropietarios() {
       axios({
         method: "get",
-        url: "http://localhost:4444/propietarios"
+        url: "http://192.168.104.211:85/cobros/propietarios/"
         // url: process.env.VUE_APP_RUTA_API+"/propietarios"
       })
           .then(response => {
@@ -74,7 +74,7 @@ export default {
   computed: {},
   mounted() {
     // axios.get(process.env.VUE_APP_RUTA_API+'/propietarios')
-    axios.get("http://localhost:4444/propietarios")
+    axios.get("http://192.168.104.211:85/cobros/propietarios/")
         .then(response => {
           this.propietarios = response.data
         })

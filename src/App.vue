@@ -1,6 +1,6 @@
 <template>
   <app-menu titulo="Cooperativa de Agua"></app-menu>
-  <router-view />
+  <router-view/>
 </template>
 
 <script>
@@ -9,13 +9,10 @@ import AppMenu from '@/components/AppMenu.vue';
 export default {
   name: 'app',
   data() {
-    return {
-    }
+    return {}
   },
-  methods: {
-  },
-  computed: {
-  },
+  methods: {},
+  computed: {},
   mounted() {
   },
   components: {
